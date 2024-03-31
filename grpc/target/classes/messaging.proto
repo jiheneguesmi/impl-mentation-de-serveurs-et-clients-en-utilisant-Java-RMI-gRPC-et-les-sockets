@@ -1,0 +1,29 @@
+syntax = "proto3";
+option java_package="org.example";
+
+
+
+
+
+service MessagingService {
+  rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+  rpc GetMessages(GetMessagesRequest) returns (GetMessagesResponse);
+}
+
+message SendMessageRequest {
+  string sender_id = 1;
+  string recipient_id = 2;
+  string message = 3;
+}
+
+message SendMessageResponse {
+  string status = 1;
+}
+
+message GetMessagesRequest {
+  string user_id = 1;
+}
+
+message GetMessagesResponse {
+  repeated string messages = 1;
+}
